@@ -52,9 +52,6 @@ jobs:
       - name: Build frontend assets
         run: npm run build
 
-      - name: Generate application key
-        run: php artisan key:generate --env=testing
-
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
