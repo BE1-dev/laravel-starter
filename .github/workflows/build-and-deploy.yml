@@ -97,7 +97,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          scp -r ./* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ env.APP_PATH }}/
+          scp -i ~/.ssh/id_rsa -r ./* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:${{ env.APP_PATH }}/
 
       - name: Run post-deploy commands on EC2
         run: |
