@@ -42,6 +42,10 @@ jobs:
             # Run database migrations
             php artisan migrate --force
 
+            # Build FE
+            npm install
+            npm run build
+
             # Clear application cache
             php artisan cache:clear
             php artisan config:clear
@@ -51,14 +55,4 @@ jobs:
             # Optimize application
             php artisan optimize
 
-            # Build FE
-            npm install
-            npm run build
-
-            # Restart PHP-FPM (adjust if using a different server)
-            sudo systemctl restart nginx
-            sudo systemctl restart php-fpm
-
-            # Restart queue worker if using queues
-            sudo systemctl restart laravel-queue || true
           EOF
