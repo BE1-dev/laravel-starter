@@ -43,6 +43,9 @@ jobs:
             # Run database migrations
             php artisan migrate --force
 
+            # Generate way finder
+            php artisan wayfinder:generate
+
             # Build FE
             npm install
             npm run build
